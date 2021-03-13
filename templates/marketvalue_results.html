@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}Market Value Ratios Result{%endblock%}
+
+{% block body %}
+<div class="container">
+    <div class="col-6 position-relative">
+        <table class="table table-secondary table-striped table-hover table-bordered position-absolute top-50 start-50">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">Market Value Ratios</th>
+                <th scope="col">Corresponding Value</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Book Value Per Share Ratio</td>
+                    <td>{{book_value_per_share_ratio}}</td>
+                </tr>
+                <tr>
+                    <td>Dividend Yield Ratio</td>
+                    <td>{{dividend_yield_ratio}}</td>
+                </tr>
+                <tr>
+                    <td>Earning Per Share Ratio</td>
+                    <td>{{earnings_per_share_ratio}}</td>
+                </tr>
+                <tr>
+                    <td>Price-Earning Ratio</td>
+                    <td>{{price_earning_ratio}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -3,41 +3,41 @@
 {% block title %} Enter Components {% endblock title %}
 
 {% block body %}
-<form>
+<form action="leverage_ratios" method="POST">
     <div class="row g-3 justify-content-center">
       <div class="col-sm-4">
         <label for="TotalAssets" class="form-label">Total Assets</label>
-        <input type="number" name="total_assets" class="form-control" id="TotalAssets" placeholder="$100,000" required>
+        <input type="number" name="total_assets" class="form-control" id="TotalAssets" placeholder="$100,000" step="any" required>
       </div>
     </div>
     <div class="row g-3 justify-content-center">
       <div class="col-sm-4">
         <label for="TotalLiabilities" class="form-label">Total Liabilities</label>
-        <input type="number" name = "total_liabilities" class="form-control" id="TotalLiabilities" placeholder="$100,000" required>
+        <input type="number" name = "total_liabilities" class="form-control" id="TotalLiabilities" placeholder="$100,000" step="any" required>
       </div>
     </div>
     <div class="row g-3 justify-content-center">
       <div class="col-sm-4">
         <label for="ShareholdersEquity" class="form-label">Shareholders Equity Total</label>
-        <input type="number" name="shareholders_equity" class="form-control" id="ShareholdersEquity" placeholder="$100,000" required>
+        <input type="number" name="shareholders_equity" class="form-control" id="ShareholdersEquity" placeholder="$100,000" step="any" required>
       </div>
     </div>
     <div class="row g-3 justify-content-center">
       <div class="col-sm-4">
         <label for="OperatingIncome" class="form-label">Operating Income Total</label>
-        <input type="number" name = "operating_income" class="form-control" id="OperatingIncome" placeholder="$100,000" required>
+        <input type="number" name = "operating_income" class="form-control" id="OperatingIncome" placeholder="$100,000" step="any" required>
       </div>
     </div>
     <div class="row g-3 justify-content-center">
       <div class="col-sm-4">
         <label for="InterestExpenses" class="form-label">Interest Expenses Total</label>
-        <input type="number" name="interest_expenses" class="form-control" id="InterestExpenses" placeholder="$100,000" required>
+        <input type="number" name="interest_expenses" class="form-control" id="InterestExpenses" placeholder="$100,000" step="any" required>
       </div>
     </div>
     <div class="row g-3 justify-content-center">
       <div class="col-sm-4">
-        <label for="TotalDebtServices" class="form-label">Total Debt Services</label>
-        <input type="number" name ="total_debt_services" class="form-control" id="CurrentAssets" placeholder="$100,000" required>
+        <label for="TotalDebtService" class="form-label">Total Debt Services</label>
+        <input type="number" name ="total_debt_service" class="form-control" id="TotalDebtService" placeholder="$100,000" step="any" required>
       </div>
     </div>
     <div class="row g-3 justify-content-center">

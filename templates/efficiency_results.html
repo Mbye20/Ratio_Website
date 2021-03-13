@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block title %}Liquidity Ratios Result{%endblock%}
+{% block title %}Efficiency Ratios Result{%endblock%}
 
 {% block body %}
 <div class="container">
@@ -8,26 +8,26 @@
         <table class="table table-secondary table-striped table-hover table-bordered position-absolute top-50 start-50">
             <thead class="table-dark">
             <tr>
-                <th scope="col">Liquidity Ratios</th>
+                <th scope="col">Efficiency Ratios</th>
                 <th scope="col">Corresponding Value</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>Current Ratio</td>
-                <td>{{current_ratio}}</td>
+                <td>Asset Turn Over Ratio</td>
+                <td>{{asset_turnover_ratio}}</td>
             </tr>
             <tr>
-                <td>Acid Test Ratio</td>
-                <td>{{acid_test_ratio}}</td>
+                <td>Inventory Turnover Ratio</td>
+                <td>{{inventory_turnover_ratio}}</td>
             </tr>
             <tr>
-                <td>Cash Ratio</td>
-                <td>{{cash_ratio}}</td>
+                <td>Receivables Turnover Ratio</td>
+                <td>{{receivables_turnover_ratio}}</td>
             </tr>
             <tr>
-                <td>Operating Cash Flow Ratio</td>
-                <td>{{acid_test_ratio}}</td>
+                <td>Days Sales in Inventory Ratio</td>
+                <td>{{days_sales_in_inventory_ratio}}</td>
             </tr>
             </tbody>
         </table>

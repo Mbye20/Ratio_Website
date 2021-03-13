@@ -48,7 +48,7 @@ class efficiency_ratios:
 
     def asset_turnover_ratio(self):
         return self.net_sales/ self.average_total_assets
-    def inventory_turn_over_ratio(self):
+    def inventory_turnover_ratio(self):
         return self.cost_of_good_sold / self.average_inventory
     def receivables_turnover_ratio(self):
         return self.net_credit_sales/ self.average_accounts_receivable
@@ -89,7 +89,7 @@ class market_value_ratios:
     def book_value_per_share_ratio(self):
         return (self.shareholders_equity - self.preferred_equity) / self.total_common_shares_outstanding
     def dividend_yield_ratio(self):
-        return self.dividend_per_share / self.share_price
+        return (self.dividend_per_share / self.share_price) * 100
     def earnings_per_share_ratio(self):
         return self.net_income / self.total_common_shares_outstanding
     def price_earning_ratio(self):

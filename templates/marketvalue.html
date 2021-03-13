@@ -3,40 +3,40 @@
 {% block title %} Enter Components {% endblock title %}
 
 {% block body %}
-<form>
+<form action="marketvalue_ratios" method="POST">
     <div class="row justify-content-center">
       <div class="col-sm-4">
         <label for="ShareholdersEquity" class="form-label">Total Shareholders' Equity</label>
-        <input type="number" name="shareholders_equity" class="form-control" id="ShareholdersEquity" placeholder="$100,000" required>
+        <input type="number" name="shareholders_equity" class="form-control" id="ShareholdersEquity" placeholder="$100,000" step="any" required>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-sm-4">
         <label for="PreferredEquity" class="form-label">Total Preferred Equity</label>
-        <input type="number" name="preferred_equity" class="form-control" id="PreferredEquity" placeholder="$100,000" required>
+        <input type="number" name="preferred_equity" class="form-control" id="PreferredEquity" placeholder="$100,000" step="any" required>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-sm-4">
         <label for="TotalCommonSharesOutstanding" class="form-label">Total Common Shares Outstanding</label>
-        <input type="number" name="total_common_shares_outstanding" class="form-control" id="TotalCommonSharesOutstanding" placeholder="$100,000" required>
+        <input type="number" name="total_common_shares_outstanding" class="form-control" id="TotalCommonSharesOutstanding" placeholder="$100,000" step="any" required>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-sm-4">
         <label for="DividendPerShare" class="form-label">Dividend Per Share</label>
-        <input type="number" name="dividend_per_share" class="form-control" id="DividendPerShare" placeholder="$100,000" required>
+        <input type="number" name="dividend_per_share" class="form-control" id="DividendPerShare" placeholder="$100,000" step="any" required>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-sm-4">
         <label for="SharePrice" class="form-label">Share Price</label>
-        <input type="number" name="share_price" class="form-control" id="SharePrice" placeholder="$100,000" required>
+        <input type="number" name="share_price" class="form-control" id="SharePrice" placeholder="$100,000" step="any" required>
     </div>
     <div class="row justify-content-center">
         <div class="col-sm-4">
           <label for="NetIncome" class="form-label">Net Income</label>
-          <input type="number" name="net_income" class="form-control" id="NetIncome" placeholder="$100,000" required>
+          <input type="number" name="net_income" class="form-control" id="NetIncome" placeholder="$100,000" step="any" required>
         </div>
     </div>
     <div class="row justify-content-center">
