@@ -123,7 +123,7 @@ def marketvalue():
 
         }
         
-        return render_template("/marketvalue_results.html", MARKETVALUE_RATIOS)
+        return render_template("/marketvalue_results.html", **MARKETVALUE_RATIOS)
 
 
 
