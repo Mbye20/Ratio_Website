@@ -1,5 +1,8 @@
+
 from flask import Flask, render_template, request, redirect
 from fin_ratios import Liquidity_ratios, leverage_ratios, efficiency_ratios, profitability_ratios, market_value_ratios
+import sqlite3
+
 app = Flask(__name__)
 
 RATIOS = [
