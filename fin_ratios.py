@@ -9,14 +9,25 @@ class Liquidity_ratios:
         self.operating_cash_flow = operating_cash_flow
 
     def current_ratio(self):
-        return self.current_assets / self.current_liabilities
+        try:
+            return self.current_assets / self.current_liabilities
+        except ZeroDivisionError:
+            return 0
     def acid_test_ratio(self):
-        return (self.current_assets - self.inventories) / self.current_liabilities
+        try:
+            return (self.current_assets - self.inventories) / self.current_liabilities
+        except ZeroDivisionError:
+            return 0
     def cash_ratio(self):
-        return self.cash_and_cash_equivalent / self.current_liabilities
+        try:
+            return self.cash_and_cash_equivalent / self.current_liabilities
+        except ZeroDivisionError:
+            return 0
     def operating_cash_flow_ratio(self):
-        return self.operating_cash_flow/ self.current_liabilities
-
+        try:
+            return self.operating_cash_flow/ self.current_liabilities
+        except ZeroDivisionError:
+            return 0
 class leverage_ratios:
     def __init__(self, total_assets, total_liabilities, shareholders_equity,
      operating_income, interest_expenses, total_debt_service):

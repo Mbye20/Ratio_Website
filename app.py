@@ -1,5 +1,6 @@
 
 from flask import Flask, render_template, request, redirect
+from flask.helpers import url_for
 from fin_ratios import Liquidity_ratios, leverage_ratios, efficiency_ratios, profitability_ratios, market_value_ratios
 import sqlite3
 
@@ -54,8 +55,10 @@ def liquidity():
                 "cash_ratio": f"{components.cash_ratio():.2f}",
                 "operating_cash_flow_ratio" : f"{components.operating_cash_flow_ratio():.2f}",
         }
-
-        return render_template("/liquidity_results.html", **LIQUIDITY_RATIOS)
+        try:
+            return render_template("/liquidity_results.html", **LIQUIDITY_RATIOS)
+        except ZeroDivisionError:
+            return redirect(url_for("calculate"))
     
 @app.route("/leverage_ratios", methods = ["GET", "POST"])
 def leverage():
@@ -127,7 +130,6 @@ def marketvalue():
         }
         
         return render_template("/marketvalue_results.html", **MARKETVALUE_RATIOS)
-
 
 
 if __name__ == "__main__":
