@@ -92,7 +92,7 @@ class efficiency_ratios:
         try:
             return 365 / (self.cost_of_good_sold / self.average_inventory)
         except ZeroDivisionError:
-            return "Average Inventory Cannot Be Zero."
+            return "Average Inventory or Cost of Good Sold Cannot Be Zero."
 
 
 
