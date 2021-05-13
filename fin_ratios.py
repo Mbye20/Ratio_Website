@@ -12,22 +12,22 @@ class Liquidity_ratios:
         try:
             return self.current_assets / self.current_liabilities
         except ZeroDivisionError:
-            return 0
+            return "Current Liabilities Cannot be Zero."
     def acid_test_ratio(self):
         try:
             return (self.current_assets - self.inventories) / self.current_liabilities
         except ZeroDivisionError:
-            return 0
+            return "Current Liabilities Cannot be Zero."
     def cash_ratio(self):
         try:
             return self.cash_and_cash_equivalent / self.current_liabilities
         except ZeroDivisionError:
-            return 0
+            return "Current Liabilities Cannot be Zero."
     def operating_cash_flow_ratio(self):
         try:
             return self.operating_cash_flow/ self.current_liabilities
         except ZeroDivisionError:
-            return 0
+            return "Current Liabilities Cannot be Zero."
 class leverage_ratios:
     def __init__(self, total_assets, total_liabilities, shareholders_equity,
      operating_income, interest_expenses, total_debt_service):
@@ -39,13 +39,26 @@ class leverage_ratios:
         self.total_debt_service =total_debt_service
     
     def debt_ratio(self):
-        return self.total_liabilities/ self.total_assets
+        try:
+            return self.total_liabilities/ self.total_assets
+        except ZeroDivisionError:
+            return "Total Assets Cannot Be Zero."
     def debt_to_equity_ratio(self):
-        return self.total_liabilities/ self.shareholders_equity
+        try:
+            return self.total_liabilities/ self.shareholders_equity
+        except ZeroDivisionError:
+            return "Total Shareholders Equity Cannot Be Zero."
     def interest_coverage_ratio(self):
-        return self.operating_income / self.interest_expenses
+        try:
+            return self.operating_income / self.interest_expenses
+        except ZeroDivisionError:
+            return "Interest Expenses Cannot Be Zero."
     def debt_service_coverage_ratio(self):
-        return self.operating_income/ self.total_debt_service
+        try:
+            return self.operating_income/ self.total_debt_service
+        except ZeroDivisionError:
+            return "Total Debt Services Cannot Be Zero."
+
 
 class efficiency_ratios:
     def __init__(self, net_sales, average_total_assets, cost_of_good_sold,
@@ -58,13 +71,29 @@ class efficiency_ratios:
         self.average_accounts_receivable = average_accounts_receivable
 
     def asset_turnover_ratio(self):
-        return self.net_sales/ self.average_total_assets
+        try:
+            return self.net_sales/ self.average_total_assets
+        except ZeroDivisionError:
+            return "Average total Assets Cannot Be Zero."
+
     def inventory_turnover_ratio(self):
-        return self.cost_of_good_sold / self.average_inventory
+        try:
+            return self.cost_of_good_sold / self.average_inventory
+        except ZeroDivisionError:
+            return "Average Inventoty Cannot Be Zero."
+
     def receivables_turnover_ratio(self):
-        return self.net_credit_sales/ self.average_accounts_receivable
+        try:
+            return self.net_credit_sales/ self.average_accounts_receivable
+        except ZeroDivisionError:
+            return "Average Account Receivables Cannot Be Zero."
+
     def days_sales_in_inventory_ratio(self):
-        return 365 / (self.cost_of_good_sold / self.average_inventory)
+        try:
+            return 365 / (self.cost_of_good_sold / self.average_inventory)
+        except ZeroDivisionError:
+            return "Average Inventory Cannot Be Zero."
+
 
 
 class profitability_ratios:
@@ -77,15 +106,35 @@ class profitability_ratios:
         self.shareholders_equity = shareholders_equity
 
     def gross_margin_ratio(self):
-        return (self.gross_profit / self.net_sales) * 100
+        try:
+            return (self.gross_profit / self.net_sales) * 100
+        except ZeroDivisionError:
+            return "Net Sales Cannot Be Zero."
+
     def operating_margin_ratio(self):
-        return (self.operating_income / self.net_sales) * 100 
+        try:
+            return (self.operating_income / self.net_sales) * 100 
+        except ZeroDivisionError:
+            return "Net Sales Cannot Be Zero."
+        
     def net_profit_margin(self):
-        return (self.net_income / self.net_sales) * 100
+        try:
+            return (self.net_income / self.net_sales) * 100
+        except ZeroDivisionError:
+            return "Net Sales Cannot Be Zero."
+        
     def return_on_assets_ratio(self):
-        return (self.net_income/ self.total_assets) * 100
+        try:
+            return (self.net_income/ self.total_assets) * 100
+        except ZeroDivisionError:
+            return "Total Assets Cannot Be Zero."
+
     def return_on_equity_ratio(self):
-        return (self.net_income/ self.shareholders_equity) * 100
+        try:
+            return (self.net_income/ self.shareholders_equity) * 100
+        except ZeroDivisionError:
+            return "Total Shareholders Equity Cannot Be Zero."
+
 
 class market_value_ratios:
     def __init__(self, shareholders_equity, preferred_equity, total_common_shares_outstanding, 
@@ -98,13 +147,28 @@ class market_value_ratios:
         self.net_income = net_income
 
     def book_value_per_share_ratio(self):
-        return (self.shareholders_equity - self.preferred_equity) / self.total_common_shares_outstanding
+        try:
+            return (self.shareholders_equity - self.preferred_equity) / self.total_common_shares_outstanding
+        except ZeroDivisionError:
+            return "Total Common Shares Outstanding Cannot Be Zero."
+        
     def dividend_yield_ratio(self):
-        return (self.dividend_per_share / self.share_price) * 100
+        try:
+            return (self.dividend_per_share / self.share_price) * 100
+        except ZeroDivisionError:
+            return "Share Price Cannot Be Zero."
+        
     def earnings_per_share_ratio(self):
-        return self.net_income / self.total_common_shares_outstanding
+        try:
+            return self.net_income / self.total_common_shares_outstanding
+        except ZeroDivisionError:
+            return "Total Common Shares Outstanding Cannot Be Zero."
+
     def price_earning_ratio(self):
-        return self.share_price / ( self.net_income / self.total_common_shares_outstanding)
+        try:
+            return self.share_price / ( self.net_income / self.total_common_shares_outstanding)
+        except ZeroDivisionError:
+            return "Total Common Shares or Net Income Cannot Be Cannot Be Zero."
             
     
     

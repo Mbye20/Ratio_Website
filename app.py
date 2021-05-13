@@ -48,33 +48,46 @@ def liquidity():
     if request.method == "POST":
         form = float_converter(request.form)
         components = Liquidity_ratios(**form)
-        
-        LIQUIDITY_RATIOS = {
-                "current_ratio": f"{components.current_ratio():.2f}",
-                "acid_test_ratio": f"{components.acid_test_ratio():.2f}",
-                "cash_ratio": f"{components.cash_ratio():.2f}",
-                "operating_cash_flow_ratio" : f"{components.operating_cash_flow_ratio():.2f}",
-        }
         try:
-            return render_template("/liquidity_results.html", **LIQUIDITY_RATIOS)
-        except ZeroDivisionError:
-            return redirect(url_for("calculate"))
+            LIQUIDITY_RATIOS = {
+                    "current_ratio": f"{components.current_ratio():.2f}",
+                    "acid_test_ratio": f"{components.acid_test_ratio():.2f}",
+                    "cash_ratio": f"{components.cash_ratio():.2f}",
+                    "operating_cash_flow_ratio" : f"{components.operating_cash_flow_ratio():.2f}",
+            }
+        except ValueError:
+            LIQUIDITY_RATIOS = {
+                    "current_ratio": components.current_ratio(),
+                    "acid_test_ratio": components.acid_test_ratio(),
+                    "cash_ratio": components.cash_ratio(),
+                    "operating_cash_flow_ratio" : components.operating_cash_flow_ratio(),
+            }
+        return render_template("/liquidity_results.html", **LIQUIDITY_RATIOS)
     
+            
 @app.route("/leverage_ratios", methods = ["GET", "POST"])
 def leverage():
     if request.method == "POST":
         form = float_converter(request.form)
         components = leverage_ratios(**form)
+        try:
+            LEVERAGE_RATIOS = {
+            "debt_ratio": f"{components.debt_ratio():.2f}",
+            "debt_to_equity_ratio" : f"{components.debt_to_equity_ratio():.2f}",
+            "interest_coverage_ratio": f"{components.interest_coverage_ratio():.2f}",
+            "debt_service_coverage_ratio": f"{components.debt_service_coverage_ratio():.2f}",
 
-        LEVERAGE_RATIOS = {
-        "debt_ratio": f"{components.debt_ratio():.2f}",
-        "debt_to_equity_ratio" : f"{components.debt_to_equity_ratio():.2f}",
-        "interest_coverage_ratio": f"{components.interest_coverage_ratio():.2f}",
-        "debt_service_coverage_ratio": f"{components.debt_service_coverage_ratio():.2f}",
 
-
-        } 
+            }
         
+        except ValueError:
+            LEVERAGE_RATIOS = {
+            "debt_ratio": components.debt_ratio(),
+            "debt_to_equity_ratio" : components.debt_to_equity_ratio(),
+            "interest_coverage_ratio": components.interest_coverage_ratio(),
+            "debt_service_coverage_ratio": components.debt_service_coverage_ratio(),
+            }
+
         return render_template("/leverage_results.html", **LEVERAGE_RATIOS )
 
 
@@ -83,13 +96,21 @@ def efficiency():
     if request.method == "POST":
         form = float_converter(request.form)
         components = efficiency_ratios(**form)
+        try:
+            EFFICIENCY_RATIOS = {
+            "asset_turnover_ratio": f"{components.asset_turnover_ratio():.2f} times",
+            "inventory_turnover_ratio": f"{components.inventory_turnover_ratio():.2f} times",
+            "receivables_turnover_ratio": f"{components.receivables_turnover_ratio():.2f} times",
+            "days_sales_in_inventory_ratio": f"{components.days_sales_in_inventory_ratio():.2f} days",
 
-        EFFICIENCY_RATIOS = {
-        "asset_turnover_ratio": f"{components.asset_turnover_ratio():.2f} times",
-        "inventory_turnover_ratio": f"{components.inventory_turnover_ratio():.2f} times",
-        "receivables_turnover_ratio": f"{components.receivables_turnover_ratio():.2f} times",
-        "days_sales_in_inventory_ratio": f"{components.days_sales_in_inventory_ratio():.2f} days",
 
+        }
+        except ValueError:
+            EFFICIENCY_RATIOS = {
+            "asset_turnover_ratio": components.asset_turnover_ratio(),
+            "inventory_turnover_ratio": components.inventory_turnover_ratio(),
+            "receivables_turnover_ratio": components.receivables_turnover_ratio(),
+            "days_sales_in_inventory_ratio": components.days_sales_in_inventory_ratio(),
 
         }        
         
@@ -101,15 +122,24 @@ def profitability():
     if request.method == "POST":
         form = float_converter(request.form)
         components = profitability_ratios(**form)
-        
-        PROFITABILITY_RATIOS = {
-        "gross_margin_ratio": f"{components.gross_margin_ratio():.2f}%",
-        "operating_margin_ratio": f"{components.operating_margin_ratio():.2f}%",
-        "net_profit_margin": f"{components.net_profit_margin():.2f}%",
-        "return_on_assets_ratio": f"{components.return_on_assets_ratio():.2f}%",
-        "return_on_equity_ratio": f"{components.return_on_equity_ratio():.2f}%",
+        try:
+            PROFITABILITY_RATIOS = {
+            "gross_margin_ratio": f"{components.gross_margin_ratio():.2f}%",
+            "operating_margin_ratio": f"{components.operating_margin_ratio():.2f}%",
+            "net_profit_margin": f"{components.net_profit_margin():.2f}%",
+            "return_on_assets_ratio": f"{components.return_on_assets_ratio():.2f}%",
+            "return_on_equity_ratio": f"{components.return_on_equity_ratio():.2f}%",
 
-        }
+            }
+        except ValueError:
+            PROFITABILITY_RATIOS = {
+                "gross_margin_ratio": components.gross_margin_ratio(),
+                "operating_margin_ratio": components.operating_margin_ratio(),
+                "net_profit_margin": components.net_profit_margin(),
+                "return_on_assets_ratio": components.return_on_assets_ratio(),
+                "return_on_equity_ratio": components.return_on_equity_ratio(),
+
+                }      
         
 
         return render_template("/profitability_results.html", **PROFITABILITY_RATIOS)
@@ -120,14 +150,23 @@ def marketvalue():
     if request.method == "POST":
         form = float_converter(request.form)
         components = market_value_ratios(**form)
-        
-        MARKETVALUE_RATIOS = {
-        "book_value_per_share_ratio": f"{components.book_value_per_share_ratio():.2f}",
-        "dividend_yield_ratio": f"{components.dividend_yield_ratio():.2f}%",
-        "earnings_per_share_ratio": f"{components.earnings_per_share_ratio():.2f}",
-        "price_earning_ratio": f"{components.price_earning_ratio():.2f}",
+        try:
+            MARKETVALUE_RATIOS = {
+            "book_value_per_share_ratio": f"{components.book_value_per_share_ratio():.2f}",
+            "dividend_yield_ratio": f"{components.dividend_yield_ratio():.2f}%",
+            "earnings_per_share_ratio": f"{components.earnings_per_share_ratio():.2f}",
+            "price_earning_ratio": f"{components.price_earning_ratio():.2f}",
 
-        }
+            }
+        except ValueError:
+            MARKETVALUE_RATIOS = {
+            "book_value_per_share_ratio": components.book_value_per_share_ratio(),
+            "dividend_yield_ratio": components.dividend_yield_ratio(),
+            "earnings_per_share_ratio": components.earnings_per_share_ratio(),
+            "price_earning_ratio": components.price_earning_ratio(),
+            }
+
+
         
         return render_template("/marketvalue_results.html", **MARKETVALUE_RATIOS)
 
