@@ -1,0 +1,1 @@
+{"id":"03ee0e4e-5950-4829-a03e-e3965173e712","space":3676,"runtime":"python3.9","name":"ratio","path":"sbeq38","project":"a0gkt4he","account":"144798365827","region":"eu-central-1","deps":["click==7.1.2","Flask==1.1.2","gunicorn==20.0.4","itsdangerous==1.1.0","Jinja2==2.11.3","MarkupSafe==1.1.1","Werkzeug==1.0.1"],"envs":null,"public":true,"log_level":"off","cron":""}
